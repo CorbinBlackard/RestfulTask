@@ -16,17 +16,25 @@
 </head>
 <body>
   <div class="root">
-    <table>
-      <tr *ngFor='let task of tasks'>
-        <td>{{task._id}}</td>
-        <td>{{task.description}}</td>
-        <button (click)='showTask(task._id)'>Show This Task Below</button>
-      </tr>
-    </table>
+    <button (click)='this.showAllTasks = true'>Display all tasks below.</button>
+      <table *ngIf='this.showAllTasks'>
+        <tr *ngFor='let task of tasks'>
+          <td>{{task._id}}</td>
+          <td>{{task.description}}</td>
+          <button (click)='showTask(task._id)'>Show This Task Below</button>
+        </tr>
+      </table>
     <hr>
     <table class='dark' *ngIf='show_task'>
       <tr><td>{{show_task.description}}</td></tr>
     </table>
+    <!-- <hr>
+    <button (click)="onButtonClick()" >Click me!</button>
+    <button (click)="onButtonClickParam1(22)">Click me!</button>
+    <button (click)="onButtonClickParams(12, 'YO')">Click me!</button>
+    <button (click)="onButtonClickEvent($event)">Click me!</button>
+    <button (click)="onButtonClickParam2({id: 3})">Click me!</button> -->
+
   </div>
 </body>
 </html>
